@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn Code App</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:linear-gradient(90deg,#fff7fb,#ffd1e2);
+  color:#333;
+}
+
+.app-bar{
+  background:#ff1493;
+  color:white;
+  height:30px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 12px;
+  font-size:14px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.logo-box{
+  background:#333;
+  width:16px;
+  height:16px;
+  display:grid;
+  place-items:center;
+  font-size:11px;
+  border-radius:2px;
+}
+
+.window-btns{
+  display:flex;
+  gap:25px;
+  font-size:16px;
+}
+
+.container{
+  max-width:720px;
+  margin:25px auto;
+  background:rgba(255,255,255,0.85);
+  border:2px solid #ff5db1;
+  border-radius:35px;
+  padding:30px;
+}
+
+h1{
+  text-align:center;
+  color:#ff1493;
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  text-align:center;
+  font-size:20px;
+  margin-bottom:25px;
+}
+
+.progress-box,
+.card{
+  border:1px solid #ffb0c8;
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:18px;
+  background:rgba(255,255,255,0.45);
+}
+
+.progress-title{
+  color:#ff1493;
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.progress-bar{
+  height:18px;
+  background:#ffd3e7;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  width:9%;
+  height:100%;
+  background:#ff1493;
+}
+
+.card{
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:scale(1.03);
+  background:#ffe4f1;
+}
+
+.card h2{
+  color:#ff1493;
+  font-size:24px;
+  margin-bottom:8px;
+}
+
+.card p{
+  font-size:18px;
+}
+
+.lesson-box{
+  display:none;
+  margin-top:15px;
+  padding:15px;
+  background:white;
+  border-radius:15px;
+  border:1px solid #ffc1d6;
+}
+
+.lesson-box ul{
+  padding-left:20px;
+  line-height:1.8;
+}
+
+.demo{
+  margin-top:12px;
+  padding:12px;
+  background:#111;
+  color:#00ff99;
+  border-radius:10px;
+  font-family:monospace;
+}
+
+button{
+  margin-top:12px;
+  padding:10px 18px;
+  border:none;
+  border-radius:20px;
+  background:#ff1493;
+  color:white;
+  cursor:pointer;
+  font-size:15px;
+}
+
+button:hover{
+  background:#d90076;
+}
+
+@media(max-width:768px){
+  .container{
+    margin:15px;
+    padding:20px;
+  }
+
+  h1{
+    font-size:32px;
+  }
+
+  .subtitle{
+    font-size:16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app-bar">
+  <div class="logo">
+    <div class="logo-box">L</div>
+    <span>Learn Code App</span>
+  </div>
+  <div class="window-btns">
+    <span>⋮</span>
+    <span>−</span>
+    <span>□</span>
+    <span>×</span>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Learn Code</h1>
+  <p class="subtitle">Learn Full Stack Development with Live Demo</p>
+
+  <div class="progress-box">
+    <div class="progress-title">Progress: <span id="progressText">9%</span></div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <div id="courses"></div>
+</div>
+
+<script>
+const courses = [
+  {
+    title:"HTML Lessons",
+    count:"8 lessons with live demonstrations",
+    lessons:[
+      "HTML Introduction",
+      "Headings and Paragraphs",
+      "Links and Images",
+      "Lists and Tables",
+      "Forms and Inputs",
+      "Audio and Video",
+      "Semantic Tags",
+      "HTML Mini Project"
+    ],
+    demo:"<h1>Hello HTML</h1>"
+  },
+  {
+    title:"CSS Lessons",
+    count:"8 lessons with live demonstrations",
+    lessons:[
+      "CSS Introduction",
+      "Colors and Backgrounds",
+      "Text Styling",
+      "Box Model",
+      "Flexbox",
+      "Grid",
+      "Transitions",
+      "Responsive Design"
+    ],
+    demo:"button:hover { transform: scale(1.1); }"
+  },
+  {
+    title:"JavaScript Lessons",
+    count:"8 lessons with live demonstrations",
+    lessons:[
+      "Variables",
+      "Operators",
+      "Conditions",
+      "Loops",
+      "Functions",
+      "Arrays",
+      "Objects",
+      "DOM Manipulation"
+    ],
+    demo:"document.write('Hello JavaScript');"
+  },
+  {
+    title:"React Lessons",
+    count:"6 lessons with live demonstrations",
+    lessons:[
+      "React Introduction",
+      "Components",
+      "Props",
+      "State",
+      "Events",
+      "React Router"
+    ],
+    demo:"function App(){ return <h1>Hello React</h1> }"
+  },
+  {
+    title:"NodeJS Lessons",
+    count:"5 lessons with live demonstrations",
+    lessons:[
+      "NodeJS Introduction",
+      "Modules",
+      "NPM",
+      "File System",
+      "Simple Server"
+    ],
+    demo:"const http = require('http');"
+  },
+  {
+    title:"ExpressJS Lessons",
+    count:"5 lessons with live demonstrations",
+    lessons:[
+      "Express Introduction",
+      "Routes",
+      "Middleware",
+      "API Creation",
+      "Backend Project"
+    ],
+    demo:"app.get('/', (req,res)=>res.send('Hello Express'))"
+  },
+  {
+    title:"MongoDB Lessons",
+    count:"5 lessons with live demonstrations",
+    lessons:[
+      "MongoDB Introduction",
+      "Collections",
+      "Insert Data",
+      "Find Data",
+      "CRUD Operations"
+    ],
+    demo:"db.students.insertOne({name:'Soorya'})"
+  }
+];
+
+const courseContainer = document.getElementById("courses");
+
+courses.forEach((course,index)=>{
+  const card = document.createElement("div");
+  card.className = "card";
+
+  card.innerHTML = `
+    <h2>${course.title}</h2>
+    <p>${course.count}</p>
+
+    <div class="lesson-box" id="lesson${index}">
+      <ul>
+        ${course.lessons.map(item => `<li>${item}</li>`).join("")}
+      </ul>
+
+      <div class="demo">${course.demo}</div>
+      <button onclick="completeLesson(event)">Complete Lesson</button>
+    </div>
+  `;
+
+  card.addEventListener("click",()=>{
+    const lessonBox = document.getElementById("lesson"+index);
+    lessonBox.style.display =
+      lessonBox.style.display === "block" ? "none" : "block";
+  });
+
+  courseContainer.appendChild(card);
+});
+
+let progress = 9;
+
+function completeLesson(event){
+  event.stopPropagation();
+
+  if(progress < 100){
+    progress += 5;
+  }
+
+  if(progress > 100){
+    progress = 100;
+  }
+
+  document.getElementById("progressText").innerText = progress + "%";
+  document.getElementById("progressFill").style.width = progress + "%";
+}
+</script>
+
+</body>
+</html>
