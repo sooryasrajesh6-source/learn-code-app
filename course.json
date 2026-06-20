@@ -1,0 +1,101 @@
+{
+  "appName": "Learn Code",
+  "subtitle": "Learn Full Stack Development with Live Demo",
+  "progress": 9,
+  "courses": [
+    {
+      "title": "HTML Lessons",
+      "lessonCount": 8,
+      "description": "8 lessons with live demonstrations",
+      "lessons": [
+        "HTML Introduction",
+        "Headings and Paragraphs",
+        "Links and Images",
+        "Lists and Tables",
+        "Forms and Inputs",
+        "Audio and Video",
+        "Semantic Tags",
+        "HTML Mini Project"
+      ]
+    },
+    {
+      "title": "CSS Lessons",
+      "lessonCount": 8,
+      "description": "8 lessons with live demonstrations",
+      "lessons": [
+        "CSS Introduction",
+        "Colors and Backgrounds",
+        "Text Styling",
+        "Box Model",
+        "Flexbox",
+        "Grid",
+        "Transitions",
+        "Responsive Design"
+      ]
+    },
+    {
+      "title": "JavaScript Lessons",
+      "lessonCount": 8,
+      "description": "8 lessons with live demonstrations",
+      "lessons": [
+        "Variables",
+        "Operators",
+        "Conditions",
+        "Loops",
+        "Functions",
+        "Arrays",
+        "Objects",
+        "DOM Manipulation"
+      ]
+    },
+    {
+      "title": "React Lessons",
+      "lessonCount": 6,
+      "description": "6 lessons with live demonstrations",
+      "lessons": [
+        "React Introduction",
+        "Components",
+        "Props",
+        "State",
+        "Events",
+        "React Router"
+      ]
+    },
+    {
+      "title": "NodeJS Lessons",
+      "lessonCount": 5,
+      "description": "5 lessons with live demonstrations",
+      "lessons": [
+        "NodeJS Introduction",
+        "Modules",
+        "NPM",
+        "File System",
+        "HTTP Server"
+      ]
+    },
+    {
+      "title": "ExpressJS Lessons",
+      "lessonCount": 5,
+      "description": "5 lessons with live demonstrations",
+      "lessons": [
+        "Express Introduction",
+        "Routes",
+        "Middleware",
+        "REST API",
+        "Backend Project"
+      ]
+    },
+    {
+      "title": "MongoDB Lessons",
+      "lessonCount": 5,
+      "description": "5 lessons with live demonstrations",
+      "lessons": [
+        "MongoDB Introduction",
+        "Collections",
+        "Insert Data",
+        "Find Data",
+        "CRUD Operations"
+      ]
+    }
+  ]
+}
